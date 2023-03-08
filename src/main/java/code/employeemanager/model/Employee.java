@@ -9,20 +9,23 @@ public class Employee implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String email;
     private String jobTitle;
     private String phoneNumber;
     private String imageUrl;
+    private String gender;
     @Column(nullable = false, updatable = false)
     private String employeeCode;
 
-    private String gender;
+
 
     public Employee() {}
 
-    public Employee(String name, String email, String jobTitle, String phoneNumber, String imageUrl, String employeeCode, String gender) {
-        this.name = name;
+    public Employee(String firstName, String lastName, String email, String jobTitle, String phoneNumber, String imageUrl, String employeeCode, String gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.jobTitle = jobTitle;
         this.phoneNumber = phoneNumber;
@@ -39,12 +42,20 @@ public class Employee implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -99,13 +110,14 @@ public class Employee implements Serializable {
     public String toString() {
         return "Employee{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", jobTitle='" + jobTitle + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
-                ", employeeCode='" + employeeCode + '\'' +
                 ", gender='" + gender + '\'' +
+                ", employeeCode='" + employeeCode + '\'' +
                 '}';
     }
 }
